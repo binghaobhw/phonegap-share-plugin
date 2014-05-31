@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="wbh.wilfred.phonegap.plugin.share"
+        version="1.0.0">
+
+  <name>SharePlugin</name>
+
+  <description>a plugin enables sharing</description>
+
+  <license>MIT</license>
+
+  <engines>
+    <engine name="cordova" version=">=3.0.0"/>
+  </engines>
+
+  <js-module src="www/share-plugin.js" name="SharePlugin">
+    <clobbers target="window.plugins.sharePlugin" />
+  </js-module>
+
+  <!-- ios -->
+  <!-- <platform name="ios">
+
+    <config-file target="config.xml" parent="/*">
+      <feature name="SocialSharing">
+        <param name="ios-package" value="SocialSharing"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/SocialSharing.h"/>
+    <source-file src="src/ios/SocialSharing.m"/>
+
+    <framework src="Social.framework" weak="true" />
+    <framework src="MessageUI.framework" weak="true" />
+  </platform> -->
+
+  <!-- android -->
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="SharePlugin">
+        <param name="android-package" value="wbh.wilfred.phonegap.plugin.share.SharePlugin" />
+      </feature>
+    </config-file>
+
+	<!-- <config-file target="AndroidManifest.xml" parent="/manifest">
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+	</config-file> -->
+
+	<source-file src="src/android/wbh/wilfred/phonegap/plugin/share/SharePlugin.java" target-dir="src/wbh/wilfred/phonegap/plugin/share"/>
+  </platform>
+
+  <!-- wp8 -->
+  <!--<platform name="wp8">
+    <config-file target="config.xml" parent="/*">
+      <feature name="SocialSharing">
+        <param name="wp-package" value="SocialSharing"/>
+      </feature>
+    </config-file>
+
+    <source-file src="src/wp8/SocialSharing.cs" />
+  </platform>-->
+
+</plugin>
