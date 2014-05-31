@@ -13,17 +13,13 @@ public class SharePlugin extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-		try {
-			if (ACTION_WECHET.equals(action)) { 
-			   return toWeChet(args);
-			}
-		} catch(Exception e) {
-			callbackContext.error(e.getMessage());
-			return false;
-		} 
+		if (ACTION_WECHET.equals(action)) { 
+		   return toWeChet(args);
+		}
+		return false;
     }
 
-	private boolean toWeChet(JSONArray args) {
+	private boolean toWeChet(JSONArray args) throws JSONException {
 		String title = args.getString(0);
 		String content = args.getString(1);
 		Intent intent = new Intent(Intent.ACTION_SEND);
