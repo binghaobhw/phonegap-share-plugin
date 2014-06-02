@@ -46,7 +46,6 @@ public class SharePlugin extends CordovaPlugin {
 		intent.setType("image/*");
 		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_GRANT_READ_URI_PERMISSION);
 		intent.putExtra("Kdescription", content);
-		intent.putExtra(Intent.EXTRA_STREAM, null);
 		this.cordova.getActivity().startActivity(intent);
 		return true;
 	}	
